@@ -7,8 +7,17 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="carditem" *ngFor="let data of isinote; let i = index">
+  <!-- <div class="carditem" *ngFor="let data of isinote; let i = index">
     <b>{{data.judul}}</b> &nbsp; &nbsp;<button routerLink="tab3/{{i}}">Open Detail</button> <br/>
     {{data.isi}}
-  </div>
+  </div> -->
+  <ion-list>
+    <div *ngFor="let data of isiData | async">
+      <ion-card class="card">
+      <h4>{{data.judul}}</h4>
+      <h5>{{data.isi}}</h5>
+      <ion-button [routerLink]="['../tab3/',data.judul]">Open Detail</ion-button>
+      </ion-card>
+    </div>
+  </ion-list>
 </ion-content>
