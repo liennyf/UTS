@@ -1,17 +1,28 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Input Note
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <div id="container">
+    Judul<br>
+    <input type="text" [(ngModel)]="Judul"/>
+    <br><br>
+    Isi Notes<br>
+    <input type="text" [(ngModel)]="Isi"/>
+    <br><br>
+    Tanggal<br>
+    <input type="date" [(ngModel)]="Tanggal"/>
+    <br><br>
+    Nilai Notes<br>
+    <input type="number" [(ngModel)]="Nilai"/>
+    <br><br>
+    Gambar<br>
+    <ion-button id="btnTakePic" (click)="TambahFoto()">Take Picture</ion-button><br>
+    <!-- <ion-input type="string" id="namafile" value={{FileName}} [readonly]="isReadonly"></ion-input> -->
+    <ion-button (click)="simpan()">Save</ion-button><br>
+  </div>
 </ion-content>
