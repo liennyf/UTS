@@ -1,17 +1,20 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>
-      Tab 3
+      Detail Note
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
     Judul<br>
-    <input type="text" [(ngModel)]="Judul"/>
+    <input type="text" value={{Judul}} [(ngModel)]="Judul"/>
     <br><br>
     Isi Notes<br>
-    <input type="text" [(ngModel)]="Isi"/>
+    <input type="text" value={{Isi}} [(ngModel)]="Isi"/>
     <br><br>
     Tanggal<br>
     <input type="date" [(ngModel)]="Tanggal"/>

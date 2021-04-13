@@ -16,7 +16,10 @@
       <ion-card class="card">
       <h4>{{data.judul}}</h4>
       <h5>{{data.isi}}</h5>
-      <ion-button [routerLink]="['../tab3/',data.judul]">Open Detail</ion-button>
+      <h5>{{data.tanggal}}</h5>
+      <h5>{{data.nilai}}</h5>
+
+      <ion-button [routerLink]="['/tab3/',data.judul]">Open Detail</ion-button>
       </ion-card>
     </div>
   </ion-list>

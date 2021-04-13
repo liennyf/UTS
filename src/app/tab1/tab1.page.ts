@@ -49,6 +49,6 @@ export class Tab1Page {
       nilai: this.Nilai,
       fileName: this.FileName
     };
-    this.dataNote.push(tempNote);
+    // this.dataNote.push(tempNote);
   }
 }

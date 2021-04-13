@@ -22,6 +22,7 @@ export class Tab3Page {
   paramindex : string;
 
   constructor(private route : ActivatedRoute, public globalService:GlobalvarService, afs : AngularFirestore) {
+    this.isiDataColl = afs.collection('note');
   }
 
   ngOnInit(afs : AngularFirestore) {
@@ -32,9 +33,17 @@ export class Tab3Page {
     if(this.paramindex==""||this.paramindex==null){
     }
     else{
-      this.isiDataColl = afs.collection('note/{{paramindex}}');
-      this.Judul = this.isiDataColl[0].judul;
-      console.log(this.Judul);
+      const isi = afs.collection("note").doc(this.paramindex).ref.get().then(function(doc){
+        this.Judul = this.isiDataColl[0].judul;
+        this.Isi = this.isiDataColl[0].isi;
+        this.Tanggal = this.isiDataColl[0].tanggal;
+        this.Nilai = this.isiDataColl[0].nilai;      
+      });
+      
+      
+      // this.Nilai = this.isiDataColl[0].nilai;
+
+      // console.log(this.Judul);
     }
   }
 
@@ -45,19 +54,19 @@ export class Tab3Page {
   update(){
     this.FileName=this.globalService.getFn();
 
-    this.isiDataColl.doc(this.Judul).set({
+    this.isiDataColl.doc(this.paramindex).set({
       judul : this.Judul,
       isi : this.Isi,
       tanggal : this.Tanggal,
       nilai: this.Nilai,
       fileName: this.FileName
     });
+    alert("Updated!");
+
   }
 
   delete(afs : AngularFirestore){
-    afs
-       .collection("note")
-       .doc(this.paramindex)
-       .delete();
+    this.isiDataColl.doc(this.paramindex).delete();
+    alert("Deleted!");
   }
 }
